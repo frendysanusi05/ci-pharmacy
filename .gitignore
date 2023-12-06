@@ -127,3 +127,4 @@ nb-configuration.xml
 /.phpunit.*.cache
 
 node_modules
+/docker/volumes
