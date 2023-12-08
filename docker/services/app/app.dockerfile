@@ -33,6 +33,14 @@ RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install exif
 RUN docker-php-ext-install pdo_mysql
 
+# Install intl extension
+RUN apt-get install -y zlib1g-dev libicu-dev g++ \
+&& docker-php-ext-configure intl \
+&& docker-php-ext-install intl
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 # Install Spark
 RUN curl -O https://raw.githubusercontent.com/codeigniter4/CodeIgniter4/develop/spark && \
     chmod +x spark && \

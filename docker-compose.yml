@@ -22,7 +22,7 @@ services:
     volumes:
       - ./:/var/www
     ports:
-      - "80:80"
+      - "8080:80"
     networks:
       - pharmacy
 
@@ -46,7 +46,7 @@ services:
       - ./:/var/www
       - .env:/var/www/.env
     ports:
-      - 80:80
+      - 8080:80
     working_dir: /var/www
     profiles: ["npm"]
     entrypoint: ['npm']
