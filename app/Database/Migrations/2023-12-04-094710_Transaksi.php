@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Pembayaran extends Migration
+class Transaksi extends Migration
 {
     public function up()
     {
@@ -29,7 +29,7 @@ class Pembayaran extends Migration
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('pembayaran', true);
+        $this->forge->createTable('transaksi', true);
     }
 
     public function down()
