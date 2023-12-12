@@ -4,8 +4,13 @@ module.exports = {
     "./app/Views/**/*.php",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins : ['Poppins', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }
 
+export default config
