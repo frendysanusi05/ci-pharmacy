@@ -10,28 +10,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="w-full min-h-screen bg-white mx-auto">
-        <div class="flex-none">
-            <Image alt="logo" src="/logo.svg" width={159} height={152}/>
+    <div class="min-h-screen bg-white mx-auto flex flex-row w-screen">
+        <div class="flex h-full w-full flex-col">
+            <div class="flex-none">
+                <Image alt="logo" src="/logo.svg" width={159} height={152}/>
+            </div>
+            <div class="flex-1 p-10 font-semibold">
+                <h1 class="text-black text-4xl font-['Poppins'] font-semibold pl-40 2mt-10">Hello, Welcome back!</h1>
+                <h1 class="text-[#4200FF] text-3xl font-bold font-poppins pl-72 mt-10">Login</h1>
+            
+                <form action="" class="mt-5">
+                    <div>
+                        <label for="" class="block bg-white w-auto"></label>
+                            <span class="px-52 flex font-semibold mt-10 text-neutral-700 text-sm font-poppins">Username</span>
+                            <input type="text" placeholder="Enter your username" class=" ml-52 px-4 flex w-64 text-xs text-start placeholder-gray-500 my-2 bg-neutral-100 py-2 rounded-md font-poppins border-gray-400">
+                    </div>
+                    <div class="mt-2">
+                        <label for="" class=""></label>
+                            <span class="px-52 flex font-semibold mt-2 text-neutral-700 text-sm font-poppins">Password</span>
+                            <input type="text" placeholder="Enter your password" class=" ml-52 flex w-64 px-4 text-xs justify text-start placeholder-gray-500 my-2 bg-neutral-100 py-2 rounded-md font-poppins border-gray-400">
+                    </div>
+                    <div class="mt-10 pl-72">
+                        <button class="bg-[#4200FF] hover:bg-[#4004EC] text-white text-md font-medium font-poppins py-1 px-8 rounded-lg ">Login</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div>
-            <h1 class="w-[691px] text-black text-3xl font-poppins font-bold pl-[49px] mt-10">Hello, Welcome back!</h1>
-            <h1 class="text-[#4200FF] text-3xl font-bold font-poppins pl-[49px] mt-10">Login</h1>
-        </div>
-        <div>
-            <form action="" class="mt-5">
-                <label for="" class="block">
-                    <span class="block font-semibold text-sm pl-[49px] mt-10 w-[139.69px] text-neutral-700 text-xl font-medium font-poppins">Username</span>
-                    <input type="text" class="mt-5 border border-black rounded-lg pl-[49px] ml-[49px]">
-                </label>
-            </form>
-        </div>
-        
-        </form>
+            <div class="flex h-screen bg-[#4200FF] w-full rounded-l-lg">
+                <img src="login/login.svg" alt="login/login.svg">
+            </div>
     </div>
-    <div>
-        <Image alt="/login/login.svg" src="/login/login.svg" class="w-[794px] h-[794px]" />
-    </div>
-    
 </body>
 </html>
