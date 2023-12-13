@@ -4,11 +4,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Obat extends Model
+class Transaksi extends Model
 {
-    protected $table            = 'obat';
+    protected $table            = 'transaksi';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $allowedFields    = ['nama', 'jenis', 'harga', 'jumlah_stok'];
+    protected $allowedFields    = ['tanggal', 'detail', 'total_biaya'];
 }
