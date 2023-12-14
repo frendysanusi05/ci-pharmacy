@@ -30,7 +30,7 @@
                 </ul>
             </div>
             <div>
-                <button class="bg-[#4200FF] hover:bg-[#4004EC] text-white text-md font-semibold font-poppins py-1 px-8 rounded-lg ">Login</button>
+                <a href="/logins" class="bg-[#4200FF] hover:bg-[#4004EC] text-white text-md font-semibold font-poppins py-1 px-8 rounded-lg">Login</a>
             </div>
         </nav>
     </header>

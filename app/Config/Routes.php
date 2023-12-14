@@ -6,14 +6,28 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->get('/api/obat', 'ObatController::getObat');
-$routes->get('/api/obat/(:segment)', 'ObatController::getObatById/$1');
-$routes->post('/api/obat', 'ObatController::createObat');
-$routes->put('/api/obat/(:segment)', 'ObatController::updateObat/$1');
-$routes->delete('/api/obat/(:segment)', 'ObatController::deleteObat/$1');
+$routes->get('/logins', 'AuthController::index');
+$routes->post('/logins', 'AuthController::login');
+$routes->get('/logout', 'AuthController::logout');
 
-$routes->get('/api/transaksi', 'TransaksiController::getTransaksi');
-$routes->get('/api/transaksi/(:segment)', 'TransaksiController::getTransaksiById/$1');
-$routes->post('/api/transaksi', 'TransaksiController::createTransaksi');
-$routes->put('/api/transaksi/(:segment)', 'TransaksiController::updateTransaksi/$1');
-$routes->delete('/api/transaksi/(:segment)', 'TransaksiController::deleteTransaksi/$1');
+$routes->group('api', function ($routes) {
+    $routes->group('obat', function ($routes) {
+        $filter = ['filter' => 'authFilter'];
+
+        $routes->get('', 'ObatController::getObat', $filter);
+        $routes->get('(:segment)', 'ObatController::getObatById/$1', $filter);
+        $routes->post('', 'ObatController::createObat', $filter);
+        $routes->put('(:segment)', 'ObatController::updateObat/$1', $filter);
+        $routes->delete('(:segment)', 'ObatController::deleteObat/$1', $filter);
+    });
+
+    $routes->group('transaksi', function ($routes) {
+        $filter = ['filter' => 'authFilter'];
+
+        $routes->get('', 'TransaksiController::getTransaksi', $filter);
+        $routes->get('(:segment)', 'TransaksiController::getTransaksiById/$1', $filter);
+        $routes->post('', 'TransaksiController::createTransaksi', $filter);
+        $routes->put('(:segment)', 'TransaksiController::updateTransaksi/$1', $filter);
+        $routes->delete('(:segment)', 'TransaksiController::deleteTransaksi/$1', $filter);
+    });
+});
