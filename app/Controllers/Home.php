@@ -6,6 +6,6 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('order');
+        return view('popupedit');
     }
 }
