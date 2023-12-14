@@ -54,16 +54,37 @@
             <h1 class="font-semibold font-poppins text-black text-2xl w-full ml-12 mt-28 mb-3">Health is a priceless treasure, and we are committed to being your loyal partner on your journey to well-being. At Apotek Sejahtera, we present a selection of the best health products, as well as information that can help you make wise decisions for yourself and your family.</h1>
         </div>
     </div>
-    <div>
-        <div class="flex-row mx-auto">
-            <h2 class="text-2xl font-poppins font-semibold text-center text-gray-700 my-96">Our Medicine Products</h2>
-        </div>    
-        <div class="box-content bg-white h-32 w-32 p-4 shadow-lg rounded-lg">
-            <div>
 
+        <div class="flex-row mx-auto">
+            <h2 class="text-2xl font-poppins font-semibold text-center text-gray-700 mt-[440px]">Our Medicine Products</h2>
+            <h2 class="font-poppins font-normal text-center text-[#B4B4B4] text-sm mt-8 break-words">We are dedicated to serve you
+ best medicine product</h2>
+        </div>    
+        <div class="grid grid-cols-3 gap-4 mt-8 w-fit m-auto">
+            <div class="bg-white h-40 shadow-lg rounded-lg aspect-square justify-center items-center">
+                <div>
+                    <img src="/landing/medicinevit.png" alt="/landing/medicinevit.png" class="bg-cover bg-center p-9 -mt-3">
+                    <div class="-mt-8 ml-4">
+                        <h1 class="font-poppins font-semibold text-xs text-left">Medicine and Vitamin</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white h-40 shadow-lg rounded-lg aspect-square flex justify-center items-cemter">
+                <div>
+                    <img src="/landing/bodycare.png" alt="/landing/bodycare.png" class="bg-cover bg-center p-9 ml-3">
+                    <div class="-mt-8 ml-10">
+                        <h1 class="font-poppins font-semibold text-xs text-left">Personal Care</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white h-40 shadow-lg rounded-lg aspect-square flex justify-center items-cemter">
+                <div>
+                    <img src="/landing/fitnessdietary.png" alt="/landing/fitnessdietary.png" class="bg-cover bg-center p-9 -mt-2">                    
+                    <div class="-mt-8 ml-7">
+                        <h1 class="font-poppins font-semibold text-xs text-left">Fitness and Dietary</h1>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
 </body>
 </html>
