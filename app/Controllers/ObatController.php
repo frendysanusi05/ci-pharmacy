@@ -16,7 +16,7 @@ class ObatController extends BaseController
 
     public function index()
     {
-        // return view('obat.index');
+        return view('medicine');
     }
 
     public function getObat()

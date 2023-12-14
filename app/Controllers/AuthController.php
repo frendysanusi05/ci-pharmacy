@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\API\ResponseTrait;
 use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
 
 class AuthController extends BaseController
 {
@@ -37,19 +36,16 @@ class AuthController extends BaseController
         ]);
 
         $token = JWT::encode($payload, $key, 'HS256');
-
         $this->response->setCookie('token', $token, 3600);
 
-        return $this->setResponseFormat('json')->respond([
-            'message'   => 'Login successful',
-            'token'     => $token
-        ]);
+        session()->setFlashdata('success', 'Login successful');
+
+        return redirect()->to('medicines')->withCookies('token', $token, 3600)->with('message', 'Login successful');
     }
 
     public function logout() {
         $this->response->deleteCookie('token');
-        return $this->setResponseFormat('json')->respond([
-            'message'   => 'Logout successful',
-        ]);
+        session()->setFlashdata('success', 'Logout successful');
+        return redirect()->to('/')->withCookies('token', null);
     }
 }
