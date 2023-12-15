@@ -4,11 +4,13 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Pesanan;
+use App\Models\Obat;
 use CodeIgniter\Config\Services;
 
 class PesananController extends BaseController
 {
     protected $pesanan;
+    protected $obat;
 
     function __construct()
     {
@@ -226,15 +228,15 @@ class PesananController extends BaseController
         $baseURL = config('App')->baseURL;
         $url = $baseURL . 'api/obat/' . $maxItemId;
 
-        $client = Services::curlrequest();
-
         try {
-            $res = $client->request('GET', $url);
-            $data = json_decode($res->getBody(), true);
+            $this->obat = new Obat();
+            $obat = $this->obat->find($maxItemId);
+            $body['nama'] = $obat['nama'];
+            $body['deskripsi'] = $obat['deskripsi'];
 
             return $this->response->setJSON([
                 'status' => 'success',
-                'data' => $data
+                'data' => $body
             ]);
         }
         catch (\Exception $e) {
@@ -243,8 +245,5 @@ class PesananController extends BaseController
                 'message' => 'An error occured'
             ]);
         }
-
-        // Make a GET request using cURL
-        // $response = perform_http_request('GET', $url);
     }
 }
