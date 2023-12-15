@@ -3,26 +3,27 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\Transaksi;
+use App\Models\Pesanan;
 
-class TransaksiController extends BaseController
+class PesananController extends BaseController
 {
-    protected $transaksi;
+    protected $pesanan;
 
-    function __construct() {
-        $this->transaksi = new Transaksi();
+    function __construct()
+    {
+        $this->pesanan = new Pesanan();   
     }
 
     public function index()
     {
-        $data['transactions'] = $this->getTransaksi(false);
-        return view('transaction', $data);
+        $data['orders'] = $this->getPesanan(false);
+        return view('order', $data);
     }
 
-    public function getTransaksi($returnJSON = true)
+    public function getPesanan($returnJSON = true)
     {
         try {
-            $data = $this->transaksi->findAll();
+            $data = $this->pesanan->findAll();
             
             if ($returnJSON) {
                 return $this->response->setJSON([
@@ -42,9 +43,9 @@ class TransaksiController extends BaseController
         }
     }
 
-    public function getTransaksiById($id, $returnJSON = true)
+    public function getPesananById($id, $returnJSON = true)
     {
-        $data = $this->transaksi->find($id);
+        $data = $this->pesanan->find($id);
         if (empty($data)) {
             return $this->response->setStatusCode(500)->setJSON([
                 'status' => 'error',
@@ -65,68 +66,29 @@ class TransaksiController extends BaseController
         }
     }
 
-    public function createTransaksi() {
+    public function createPesanan() {
         $body = (array) $this->request->getJSON();
 
-        
         $validationData = [
-            'bulan'  => 'required',
-            'total_biaya'  => 'required',
-        ];
-        
-        if (!$this->validate($validationData, $body)) {
-            return $this->response->setStatusCode(400)->setJSON($this->validator->getErrors());
-        }
-        
-        try {
-            $data = $this->transaksi->insert([
-                'bulan' => $body['bulan'],
-                'total_biaya' => $body['total_biaya']
-            ]);
-            
-            return $this->response->setJSON([
-                'status' => 'success',
-                'data' => $body
-            ]);
-        }
-        catch (\Exception $e) {
-            return $this->response->setStatusCode(500)->setJSON([
-                'status' => 'error',
-                'message' => 'An error occured'
-            ]);
-        }
-    }
-
-    public function updateTransaksi($id, $returnJSON = true) {
-        $body = (array) $this->request->getJSON();
-
-        if (!$body) {
-            $returnJSON = false;
-
-            $body['bulan'] = $_POST['bulan'];
-            $body['total_biaya'] = $_POST['total_biaya'];
-        }
-
-        $validationData = [
-            'bulan'  => 'required',
-            'total_biaya'  => 'required'
+            'id_pesanan'   => 'required',
+            'id_obat'      => 'required',
+            'nama_pasien'  => 'required',
         ];
 
         if (!$this->validate($validationData, $body)) {
             return $this->response->setStatusCode(400)->setJSON($this->validator->getErrors());
         }
 
-        // check if transaksi exist
-        $res = $this->transaksi->find($id);
-        
-        if (!$res) {
-            return $this->response->setStatusCode(400)->setJSON(['error' => 'An error occured']);
-        }
+        $body['status_bayar'] = 0;
+        $body['status_ambil'] = 0;
 
         try {
-            $data = $this->transaksi->update($id, [
-                'bulan' => $body['bulan'],
-                'total_biaya' => $body['total_biaya']
+            $data = $this->pesanan->insert([
+                'id_pesanan' => $body['id_pesanan'],
+                'id_obat' => $body['id_obat'],
+                'nama_pasien' => $body['nama_pasien'],
+                'status_bayar' => $body['status_bayar'],
+                'status_ambil' => $body['status_ambil'],
             ]);
     
             return $this->response->setJSON([
@@ -142,16 +104,59 @@ class TransaksiController extends BaseController
         }
     }
 
-    public function deleteTransaksi($id, $returnJSON = true) {
+    public function updatePesanan($id, $returnJSON = true) {
+        $body = (array) $this->request->getJSON();
+
+        if (!$body) {
+            $returnJSON = false;
+
+            $body['status_bayar'] = $_POST['status_bayar'];
+            $body['status_ambil'] = $_POST['status_ambil'];
+        }
+
+        // check if pesanan exist
+        $res = $this->pesanan->find($id);
+        
+        if (!$res) {
+            return $this->response->setStatusCode(400)->setJSON(['error' => 'An error occured']);
+        }
+
         try {
-            $res = $this->transaksi->find($id);
+            $data = $this->pesanan->update($id, [
+                'status_bayar' => $body['status_bayar'],
+                'status_ambil' => $body['status_ambil'],
+            ]);
+
+            if ($returnJSON) {
+                $res = $this->getPesananById($id, false);
+
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'data' => $res
+                ]);
+            }
+            else {
+                return redirect()->to('/order');
+            }
+        }
+        catch (\Exception $e) {
+            return $this->response->setStatusCode(500)->setJSON([
+                'status' => 'error',
+                'message' => 'An error occured'
+            ]);
+        }
+    }
+
+    public function deletePesanan($id, $returnJSON = true) {
+        try {
+            $res = $this->pesanan->find($id);
 
             if (!$res) {
                 return $this->response->setStatusCode(404)->setJSON(['error' => 'An error occured']);
             }
 
-            $data = $this->transaksi->delete($id);
-            
+            $data = $this->pesanan->delete($id);
+
             if ($returnJSON) {
                 return $this->response->setJSON([
                     'status' => 'success',
@@ -160,7 +165,7 @@ class TransaksiController extends BaseController
             }
             else
             {
-                return redirect()->to('/transaction');
+                return redirect()->to('/medicines');
             }
         }
         catch (\Exception $e) {
