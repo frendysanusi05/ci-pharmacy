@@ -38,8 +38,8 @@ class ObatSeeder extends Seeder
                 'deskripsi'     => 'lorem ipsum',
             ],
             [
-                'nama'          => 'scandexon',
-                'jenis'         => 'tablet',
+                'nama'          => 'vitamin B12',
+                'jenis'         => 'suplemen',
                 'harga'         => 2300,
                 'jumlah_stok'   => 20,
                 'deskripsi'     => 'lorem ipsum',
@@ -59,8 +59,8 @@ class ObatSeeder extends Seeder
                 'deskripsi'     => 'lorem ipsum',
             ],
             [
-                'nama'          => 'cetirizine',
-                'jenis'         => 'tablet',
+                'nama'          => 'vitamin C',
+                'jenis'         => 'suplemen',
                 'harga'         => 5000,
                 'jumlah_stok'   => 20,
                 'deskripsi'     => 'lorem ipsum',
