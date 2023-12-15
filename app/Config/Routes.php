@@ -16,6 +16,8 @@ $routes->get('/medicines', 'ObatController::index', $filter);
 $routes->get('/order', 'OrderController::index', $filter);
 $routes->get('/editMedicine/(:segment)', 'ObatController::editForm/$1', $filter);
 $routes->post('/editMedicine/(:num)(/(:segment))?', 'ObatController::updateObat/$1/$2', $filter);
+$routes->get('/deleteMedicineForm/(:segment)', 'ObatController::deleteForm/$1', $filter);
+$routes->post('/deleteMedicine/(:num)(/(:segment))?', 'ObatController::deleteObat/$1/$2', $filter);
 
 $routes->group('api', function ($routes) {
     $routes->post('login', 'AuthController::loginAPI');

@@ -10,7 +10,7 @@
         <?php foreach ($medicines as $medicine): ?>
             <div class="my-6 bg-white h-56 w-48 shadow-lg rounded-xl aspect-square justify-center items-center">
                 <div class="flex">
-                    <a href="/deleteMedicine/<?php echo $medicine['id'] ?>">
+                    <a href="/deleteMedicineForm/<?php echo $medicine['id'] ?>">
                         <img src="/medicine/delete.png" alt="/medicine/delete.png" class="ml-3 h-6 w-6 mt-3">
                     </a>
                     <h1 class="font-poppins font-semibold text-black text-base text-center mt-3 ml-6"><?php echo isset($medicine['nama']) ? $medicine['nama'] : null; ?></h1>

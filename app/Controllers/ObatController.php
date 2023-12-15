@@ -26,6 +26,12 @@ class ObatController extends BaseController
         return view('popupedit', $data);
     }
 
+    public function deleteForm($id)
+    {
+        $data['medicine'] = $this->deleteObat($id, false);
+        return view('popupdelete', $data);
+    }
+
     public function getObat($returnJSON = true)
     {
         try {
