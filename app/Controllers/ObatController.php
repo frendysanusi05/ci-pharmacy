@@ -16,18 +16,24 @@ class ObatController extends BaseController
 
     public function index()
     {
-        return view('medicine');
+        $data['medicines'] = $this->getObat(false);
+        return view('medicine', $data);
     }
 
-    public function getObat()
+    public function getObat($returnJSON = true)
     {
         try {
             $data = $this->obat->findAll();
-            return $this->response->setJSON([
-                'status' => 'success',
-                'data'   => $data
-            ]);
-            // return view('obat.index', $data);
+            
+            if ($returnJSON) {
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'data'   => $data
+                ]);
+            }
+            else {
+                return $data;
+            }
         }
         catch (\Exception $e) {
             return $this->response->setStatusCode(500)->setJSON([

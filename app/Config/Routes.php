@@ -8,12 +8,12 @@ use CodeIgniter\Router\RouteCollection;
 $filter = ['filter' => 'authFilter'];
 
 $routes->get('/', 'Home::index');
-// $routes->match(['get', 'post'], '/login', 'AuthController::login');
 $routes->get('/logins', 'AuthController::index');
 $routes->post('/logins', 'AuthController::login');
 $routes->get('/logout', 'AuthController::logout');
 
 $routes->get('/medicines', 'ObatController::index', $filter);
+$routes->get('/order', 'OrderController::index', $filter);
 
 $routes->group('api', function ($routes) {
     $routes->group('obat', function ($routes) {
