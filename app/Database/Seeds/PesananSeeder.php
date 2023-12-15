@@ -18,7 +18,7 @@ class PesananSeeder extends Seeder
             ],
             [
                 'id_pesanan'    => 1,
-                'id_obat'       => 2,
+                'id_obat'       => 1,
                 'nama_pasien'   => 'Pasien 1',
                 'status_bayar'  => 1,
                 'status_ambil'  => 1,

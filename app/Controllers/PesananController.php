@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Pesanan;
+use CodeIgniter\Config\Services;
 
 class PesananController extends BaseController
 {
@@ -12,6 +13,7 @@ class PesananController extends BaseController
     function __construct()
     {
         $this->pesanan = new Pesanan();   
+        helper(['curl']);
     }
 
     public function index()
@@ -174,5 +176,34 @@ class PesananController extends BaseController
                 'message' => 'An error occured'
             ]);
         }
+    }
+
+    public function recommendSupplement() {
+        $data = $this->getPesanan(false);
+
+        $countItem = [];
+        foreach ($data as $medicine) {
+            $id = $medicine['id_obat'];
+            if (!array_key_exists($id, $countItem)) {
+                $countItem[$id] = 1;
+            }
+            else
+            {
+                $countItem[$id] += 1;
+            }
+        }
+
+        $maxItemId = array_search(max($countItem), $countItem);
+
+        $baseURL = config('App')->baseURL;
+        $url = $baseURL . 'api/obat/' . $maxItemId;
+
+        // Make a GET request using cURL
+        $response = perform_http_request('GET', $url);
+        
+        return $this->response->setJSON([
+            'status' => 'success',
+            'data' => $response
+        ]);
     }
 }

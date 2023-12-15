@@ -22,8 +22,12 @@ $routes->get('/order', 'PesananController::index', $filter);
 
 $routes->get('/transaction', 'TransaksiController::index', $filter);
 
+
 $routes->group('api', function ($routes) {
     $routes->post('login', 'AuthController::loginAPI');
+    
+    $filter = ['filter' => 'authFilter'];
+    $routes->get('recommendSupplement', 'PesananController::recommendSupplement', $filter);
 
     $routes->group('obat', function ($routes) {
         $filter = ['filter' => 'authFilter'];
