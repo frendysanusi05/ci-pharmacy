@@ -54,6 +54,7 @@ $routes->group('api', function ($routes) {
 
         $routes->get('', 'PesananController::getPesanan', $filter);
         $routes->get('(:segment)', 'PesananController::getPesananById/$1', $filter);
+        $routes->get('pesanan/(:segment)', 'PesananController::getPesananByIdPesanan/$1', $filter);
         $routes->post('', 'PesananController::createPesanan', $filter);
         $routes->put('(:segment)', 'PesananController::updatePesanan/$1', $filter);
         $routes->delete('(:segment)', 'PesananController::deletePesanan/$1', $filter);

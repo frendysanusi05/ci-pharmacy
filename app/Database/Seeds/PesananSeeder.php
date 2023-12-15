@@ -18,7 +18,7 @@ class PesananSeeder extends Seeder
             ],
             [
                 'id_pesanan'    => 1,
-                'id_obat'       => 1,
+                'id_obat'       => 2,
                 'nama_pasien'   => 'Pasien 1',
                 'status_bayar'  => 1,
                 'status_ambil'  => 1,
@@ -39,7 +39,7 @@ class PesananSeeder extends Seeder
             ],
             [
                 'id_pesanan'    => 2,
-                'id_obat'       => 4,
+                'id_obat'       => 1,
                 'nama_pasien'   => 'Pasien 2',
                 'status_bayar'  => 1,
                 'status_ambil'  => 0,
@@ -53,7 +53,7 @@ class PesananSeeder extends Seeder
             ],
             [
                 'id_pesanan'    => 4,
-                'id_obat'       => 5,
+                'id_obat'       => 1,
                 'nama_pasien'   => 'Pasien 4',
                 'status_bayar'  => 1,
                 'status_ambil'  => 0,

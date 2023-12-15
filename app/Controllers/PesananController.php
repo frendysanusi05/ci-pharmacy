@@ -68,6 +68,34 @@ class PesananController extends BaseController
         }
     }
 
+    public function getPesananByIdPesanan($id, $returnJSON = true)
+    {
+        try {
+            $orders = $this->getPesanan(false);
+    
+            $filteredOrder = array_filter($orders, function ($order) use ($id) {
+                return $order['id_pesanan'] == $id;
+            });
+    
+            if ($returnJSON) {
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'data'   => $filteredOrder
+                ]);
+            }
+            else
+            {
+                return $filteredOrder;
+            }
+        }
+        catch (\Exception $e) {
+            return $this->response->setStatusCode(500)->setJSON([
+                'status' => 'error',
+                'message' => 'An error occured'
+            ]);
+        }
+    }
+
     public function createPesanan() {
         $body = (array) $this->request->getJSON();
 
@@ -198,12 +226,25 @@ class PesananController extends BaseController
         $baseURL = config('App')->baseURL;
         $url = $baseURL . 'api/obat/' . $maxItemId;
 
+        $client = Services::curlrequest();
+
+        try {
+            $res = $client->request('GET', $url);
+            $data = json_decode($res->getBody(), true);
+
+            return $this->response->setJSON([
+                'status' => 'success',
+                'data' => $data
+            ]);
+        }
+        catch (\Exception $e) {
+            return $this->response->setStatusCode(500)->setJSON([
+                'status' => 'error',
+                'message' => 'An error occured'
+            ]);
+        }
+
         // Make a GET request using cURL
-        $response = perform_http_request('GET', $url);
-        
-        return $this->response->setJSON([
-            'status' => 'success',
-            'data' => $response
-        ]);
+        // $response = perform_http_request('GET', $url);
     }
 }
