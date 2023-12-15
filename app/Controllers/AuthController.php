@@ -43,6 +43,38 @@ class AuthController extends BaseController
         return redirect()->to('medicines')->withCookies('token', $token, 3600)->with('message', 'Login successful');
     }
 
+    public function loginAPI()
+    {   
+        $body = (array) $this->request->getJSON();
+        
+        $username = $body['username'];
+        $password = $body['password'];
+
+        if ($username != 'admin' || $password != 'password') {
+            return $this->setResponseFormat('json')->respond(['message' => 'Invalid username or password']);
+        }
+
+        $key = getenv('JWT_SECRET');
+        $iat = time();
+        $exp = $iat + 3600;
+
+        $payload = array([
+            'iss'      => 'localhost',
+            'iat'      => $iat,
+            'exp'      => $exp,
+            'username' => $username,
+        ]);
+
+        $token = JWT::encode($payload, $key, 'HS256');
+
+        $this->response->setCookie('token', $token, 3600);
+
+        return $this->setResponseFormat('json')->respond([
+            'message'   => 'Login successful',
+            'token'     => $token
+        ]);
+    }
+
     public function logout() {
         $this->response->deleteCookie('token');
         session()->setFlashdata('success', 'Logout successful');

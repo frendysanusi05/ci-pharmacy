@@ -34,6 +34,6 @@ class Transaksi extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('pembayaran');
+        $this->forge->dropTable('transaksi');
     }
 }

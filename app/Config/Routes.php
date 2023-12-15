@@ -14,8 +14,12 @@ $routes->get('/logout', 'AuthController::logout');
 
 $routes->get('/medicines', 'ObatController::index', $filter);
 $routes->get('/order', 'OrderController::index', $filter);
+$routes->get('/editMedicine/(:segment)', 'ObatController::editForm/$1', $filter);
+$routes->post('/editMedicine/(:num)(/(:segment))?', 'ObatController::updateObat/$1/$2', $filter);
 
 $routes->group('api', function ($routes) {
+    $routes->post('login', 'AuthController::loginAPI');
+
     $routes->group('obat', function ($routes) {
         $filter = ['filter' => 'authFilter'];
 

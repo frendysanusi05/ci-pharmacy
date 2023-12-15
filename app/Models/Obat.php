@@ -10,5 +10,5 @@ class Obat extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $allowedFields    = ['nama', 'jenis', 'harga', 'jumlah_stok'];
+    protected $allowedFields    = ['nama', 'jenis', 'harga', 'jumlah_stok', 'deskripsi'];
 }

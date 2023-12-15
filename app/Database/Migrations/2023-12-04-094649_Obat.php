@@ -28,7 +28,11 @@ class Obat extends Migration
             ], 
             'jumlah_stok'  => [
                 'type'           => 'INTEGER',
-            ], 
+            ],
+            'deskripsi'    => [
+                'type'          => 'VARCHAR',
+                'constraint'    => '255',
+            ]
         ]);
 
         $this->forge->addPrimaryKey('id');
