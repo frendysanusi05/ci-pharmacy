@@ -70,7 +70,7 @@
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 6.800.000</td>
                     </tr>
 
-                    <tr class="bg-gray-50">
+                    <tr class="bg-gray-100">
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Mei 2023</td>
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 3.543.000</td>
                     </tr>
@@ -80,7 +80,7 @@
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 5.890.000</td>
                     </tr>
 
-                    <tr class="bg-gray-50">
+                    <tr class="bg-gray-100">
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Juli 2023</td>
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 2.890.000</td>
                     </tr>
@@ -90,7 +90,7 @@
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 9.890.000</td>
                     </tr>
 
-                    <tr class="bg-gray-50">
+                    <tr class="bg-gray-100">
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">September 2023</td>
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 4.890.000</td>
                     </tr>
@@ -100,16 +100,15 @@
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 1.890.000</td>
                     </tr>
 
-                    <tr class="bg-gray-50">
+                    <tr class="bg-gray-100">
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">November 2023</td>
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 2.890.000</td>
                     </tr>
 
-                    <tr class="bg-gray-50">
+                    <tr class="bg-gray-50 mb-16">
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Desember 2023</td>
                         <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 3.890.000</td>
                     </tr>
-
                 </tbody>
             </table>
         </div>
