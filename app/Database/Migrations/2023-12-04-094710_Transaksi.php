@@ -15,16 +15,11 @@ class Transaksi extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'tanggal'    => [
-                'type'           => 'DATETIME',
-            ],
-            'detail'    => [
-                'type'           => 'VARCHAR',
-                'constraint'     => '255',
+            'bulan'    => [
+                'type'           => 'INT',
             ],
             'total_biaya'  => [
                 'type'           => 'INTEGER',
-                'unsigned'       => true,
             ], 
         ]);
 
