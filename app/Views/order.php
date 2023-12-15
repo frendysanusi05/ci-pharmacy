@@ -27,6 +27,9 @@
                         <a class="hover:text-blue-700" href="#">Order</a>            
                     </li>
                     <li>
+                        <a class="hover:text-blue-700" href="#">Transaction</a>            
+                    </li>
+                    <li>
                         <a class="hover:text-blue-700" href="#">Profile</a>            
                     </li>
                 </ul>

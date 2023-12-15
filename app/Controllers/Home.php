@@ -6,6 +6,6 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('popupdelete');
+        return view('transaction');
     }
 }
