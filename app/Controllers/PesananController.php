@@ -152,7 +152,6 @@ class PesananController extends BaseController
         if (!$body) {
             $returnJSON = false;
 
-            $body['status_bayar'] = $_POST['status_bayar'];
             $body['status_ambil'] = $_POST['status_ambil'];
         }
 
@@ -165,7 +164,6 @@ class PesananController extends BaseController
 
         try {
             $data = $this->pesanan->update($id, [
-                'status_bayar' => $body['status_bayar'],
                 'status_ambil' => $body['status_ambil'],
             ]);
 

@@ -15,7 +15,7 @@
                 echo '
                 <div>
 
-                <div class="ml-4 my-6 bg-white h-56 w-[340px] shadow-lg rounded-xl aspect-square justify-center items-center">
+                <div id="a" class="ml-4 my-6 bg-white h-56 w-[340px] shadow-lg rounded-xl aspect-square justify-center items-center">
                     <div class="flex">
                         <div class="bg-[#FD7401] h-14 w-86 pl-1 shadow-lg rounded-t-xl items-center -mt-6 mx-0 flex">
                             <h1 class="font-poppins font-semibold text-white text-[11px] text-center ml-4 w-28">Order ID: ' . ( isset($currentOrder["id_pesanan"]) ? ($currentOrder["id_pesanan"]) : null) . '</h1>
@@ -54,7 +54,7 @@
                                     
                             </tbody>
                         </table>
-                        <form method=" ' . ( isset($currentOrder["status_ambil"]) ? (($currentOrder["status_ambil"]) ? null : "post") : null ) . ' ">
+                        <form action="" id="' . ( isset($currentOrder["id"]) ? ($currentOrder["id"])  : null ) . '" method=" ' . ( isset($currentOrder["status_ambil"]) ? (($currentOrder["status_ambil"]) ? null : "post") : null ) . ' ">
                             <div class="text-center">
                                 <button type="submit" class=" text-center m-auto mt-2 h-11 w-72  text-white text-md font-medium font-poppins rounded-lg py-1 px-8 ' . ( isset($currentOrder["status_ambil"]) ? (($currentOrder["status_ambil"]) ? "bg-[#9A9A9A] hover:bg-gray-500" : "bg-[#4200FF] hover:bg-[#4004EC]") : null ) . '">Done</button>
                             </div>   
@@ -62,7 +62,40 @@
                     </div>
                 </div>
             
-            </div>'
+            </div>
+
+            <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("' . ( isset($currentOrder["id"]) ? ($currentOrder["id"])  : "a" ) . '").addEventListener("click", function(event) {
+                    event.preventDefault();
+                    var orderId = document.getElementById("' . ( isset($currentOrder["id"]) ? ($currentOrder["id"])  : "a" ) . '").getAttribute("id");
+                    updateStatus(orderId);
+                    
+                });
+
+                function updateStatus(orderId) {
+                    fetch("/api/pesanan/" + orderId, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            "status_ambil": 1
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 500);
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                    });
+                }
+            });
+        </script>'
             ;
             
             
@@ -70,9 +103,6 @@
 
         ?>
         
-        <?php foreach ($orders as $order): ?>
-            
-        <?php endforeach; ?>
         <!-- ?php include('footer.php') ?> -->
 
         
@@ -82,8 +112,12 @@
 </body>
 =======
     </div>
+
+    
 </body>
 
+<<<<<<< HEAD
+=======
 <!-- <script>
     document.getElementById("updateStatusButton").addEventListener("click", function() {
         var orderId = document.getElementById("updateStatusButton").getAttribute('data-order-id');
@@ -108,3 +142,4 @@
     }
 </script> -->
 >>>>>>> 9c3b3c4e56f5a47a7a09438961899f3182393f72
+>>>>>>> f39fd79fddcdf6c3f13bb746bad98909250d9f62
