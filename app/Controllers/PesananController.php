@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Pesanan;
 use App\Models\Obat;
-use CodeIgniter\Config\Services;
 
 class PesananController extends BaseController
 {
@@ -14,14 +13,25 @@ class PesananController extends BaseController
 
     function __construct()
     {
-        $this->pesanan = new Pesanan();   
-        helper(['curl']);
+        $this->pesanan = new Pesanan();
+        $this->obat = new Obat();
     }
 
     public function index()
     {
-        $data['orders'] = $this->getPesanan(false);
-        return view('order', $data);
+        $res = $this->getPesanan(false);
+        $orders = [];
+
+        foreach ($res as $order) {
+            $id_obat = $order['id_obat'];
+
+            $obat = $this->obat->find($id_obat);
+            $order['nama_obat'] = $obat['nama'];
+
+            $orders[] = $order;
+        }
+        
+        return view('order', compact('orders'));
     }
 
     public function getPesanan($returnJSON = true)
@@ -225,11 +235,7 @@ class PesananController extends BaseController
 
         $maxItemId = array_search(max($countItem), $countItem);
 
-        $baseURL = config('App')->baseURL;
-        $url = $baseURL . 'api/obat/' . $maxItemId;
-
         try {
-            $this->obat = new Obat();
             $obat = $this->obat->find($maxItemId);
             $body['nama'] = $obat['nama'];
             $body['deskripsi'] = $obat['deskripsi'];
