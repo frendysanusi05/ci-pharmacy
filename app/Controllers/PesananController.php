@@ -4,14 +4,18 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Pesanan;
+use App\Models\Obat;
+use CodeIgniter\Config\Services;
 
 class PesananController extends BaseController
 {
     protected $pesanan;
+    protected $obat;
 
     function __construct()
     {
         $this->pesanan = new Pesanan();   
+        helper(['curl']);
     }
 
     public function index()
@@ -63,6 +67,34 @@ class PesananController extends BaseController
             {
                 return $data;
             }
+        }
+    }
+
+    public function getPesananByIdPesanan($id, $returnJSON = true)
+    {
+        try {
+            $orders = $this->getPesanan(false);
+    
+            $filteredOrder = array_filter($orders, function ($order) use ($id) {
+                return $order['id_pesanan'] == $id;
+            });
+    
+            if ($returnJSON) {
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'data'   => $filteredOrder
+                ]);
+            }
+            else
+            {
+                return $filteredOrder;
+            }
+        }
+        catch (\Exception $e) {
+            return $this->response->setStatusCode(500)->setJSON([
+                'status' => 'error',
+                'message' => 'An error occured'
+            ]);
         }
     }
 
@@ -167,6 +199,45 @@ class PesananController extends BaseController
             {
                 return redirect()->to('/medicines');
             }
+        }
+        catch (\Exception $e) {
+            return $this->response->setStatusCode(500)->setJSON([
+                'status' => 'error',
+                'message' => 'An error occured'
+            ]);
+        }
+    }
+
+    public function recommendSupplement() {
+        $data = $this->getPesanan(false);
+
+        $countItem = [];
+        foreach ($data as $medicine) {
+            $id = $medicine['id_obat'];
+            if (!array_key_exists($id, $countItem)) {
+                $countItem[$id] = 1;
+            }
+            else
+            {
+                $countItem[$id] += 1;
+            }
+        }
+
+        $maxItemId = array_search(max($countItem), $countItem);
+
+        $baseURL = config('App')->baseURL;
+        $url = $baseURL . 'api/obat/' . $maxItemId;
+
+        try {
+            $this->obat = new Obat();
+            $obat = $this->obat->find($maxItemId);
+            $body['nama'] = $obat['nama'];
+            $body['deskripsi'] = $obat['deskripsi'];
+
+            return $this->response->setJSON([
+                'status' => 'success',
+                'data' => $body
+            ]);
         }
         catch (\Exception $e) {
             return $this->response->setStatusCode(500)->setJSON([
