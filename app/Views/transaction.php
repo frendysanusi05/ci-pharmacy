@@ -18,10 +18,10 @@
                     <?php foreach ($transactions as $transaction): ?>
                         <tr class="bg-gray-50">
                             <td class="border-r-2 border-gray-800 p-3 text-sm text-gray-700 font-semibold font-poppins text-center"><?php echo isset($transaction['bulan']) ? ($transaction['bulan']) : null ?></td>
-
                             <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center"><?php echo isset($transaction['total_biaya']) ? $transaction['total_biaya'] : null; ?></td>
                         </tr>
                     <?php endforeach; ?>
+
 
                 </tbody>
             </table>
