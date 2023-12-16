@@ -38,13 +38,8 @@ class ObatSeeder extends Seeder
                 'deskripsi'     => 'lorem ipsum',
             ],
             [
-<<<<<<< HEAD
                 'nama'          => 'Sakatonik',
                 'jenis'         => 'Suplemen',
-=======
-                'nama'          => 'vitamin B12',
-                'jenis'         => 'suplemen',
->>>>>>> b8293ffab539eb16791185e9493fc4e8939974fa
                 'harga'         => 2300,
                 'jumlah_stok'   => 20,
                 'deskripsi'     => 'lorem ipsum',
@@ -64,13 +59,8 @@ class ObatSeeder extends Seeder
                 'deskripsi'     => 'lorem ipsum',
             ],
             [
-<<<<<<< HEAD
                 'nama'          => 'Pharmaton',
                 'jenis'         => 'Suplemen',
-=======
-                'nama'          => 'vitamin C',
-                'jenis'         => 'suplemen',
->>>>>>> b8293ffab539eb16791185e9493fc4e8939974fa
                 'harga'         => 5000,
                 'jumlah_stok'   => 20,
                 'deskripsi'     => 'lorem ipsum',

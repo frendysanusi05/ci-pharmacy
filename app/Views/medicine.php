@@ -20,10 +20,10 @@
                     <div class="bg-[hsl(256,100%,50%)] h-16 w-auto shadow-lg rounded-xl items-center -mt-6 flex">
                         <div class="pl-5 pt-[0.10px]">
                             <h1 class="font-poppins font-semibold text-white text-base text-left pt-2 -mt-1"><?php echo isset($medicine['harga']) ? $medicine['harga'] : null; ?></h1>
-                            <h1 class="font-poppins font-semibold text-white text-xs text-left mt-2">Stok <?php echo isset($medicine['jumlah_stok']) ? $medicine['jumlah_stok'] : null; ?></h1>
+                            <h1 class="font-poppins font-semibold text-white text-xs text-left">Stok <?php echo isset($medicine['jumlah_stok']) ? $medicine['jumlah_stok'] : null; ?></h1>
                         </div>
                         <a href="/editMedicine/<?php echo $medicine['id'] ?>">
-                            <img src="/medicine/icon_edit.png" alt="/medicine/icon_edit.png" class="h-6 w-6 ml-14 mt-1">
+                            <img src="/medicine/icon_edit.png" alt="/medicine/icon_edit.png" class="h-6 w-6 ml-24 mt-5 mr-1">
                         </a>
                     </div>
                 </div>
