@@ -2,7 +2,7 @@
 
 <body class="font-poppins bg-[#F5F5F5] h-screen">
     <header class="bg-[#F5F5F5]">
-        <nav class="flex justify-between items-center w-[92%] mx-auto mr-44">
+        <nav class="fixed bg-gray-50 shadow-sm flex justify-between items-center w-full mx-auto">
             <div>
                 <img src="/logo.svg" alt="/logo.svg">
             </div>
@@ -12,14 +12,14 @@
                         <a class="hover:text-blue-700" href="#">Home</a>
                     </li>
                     <li>
-                        <a class="hover:text-blue-700" href="#">About</a>
+                        <a class="hover:text-blue-700" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="hover:text-blue-700" href="#">Contact Us</a>            
+                        <a class="hover:text-blue-700" href="#contact">Contact Us</a>            
                     </li>
                 </ul>
             </div>
-            <div>
+            <div class="pr-24">
                 <a href="/logins" class="bg-[#4200FF] hover:bg-[#4004EC] text-white text-md font-semibold font-poppins py-1 px-8 rounded-lg">Login</a>
             </div>
         </nav>
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="flex flex-row mx-auto -my-72">
-        <div class="-mt-2 h-2">
+        <div id="about" class="-mt-2 h-2">
             <img alt="/landing/medicine_3.png" src="/landing/medicine_3.png">
         </div>
         <div class="w-1/2 text-right">
@@ -77,7 +77,7 @@
             </div>
         </div>
 
-        <div class="FOOTER bg-[#4200FF] text-white rounded-t-lg border-12 p-8 pb-0">
+        <div id="contact" class="FOOTER bg-[#4200FF] text-white rounded-t-lg border-12 p-8 pb-0">
             <div class="">
                 <h1 class="text-3xl font-bold text-center">We Care About You</h1>
                 <h2 class="text-xl text-center p-2">Find Any Medicine You Need!</h2>
