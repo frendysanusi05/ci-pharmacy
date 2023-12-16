@@ -21,7 +21,7 @@ class AuthController extends BaseController
         $password = $_POST['password'];
 
         if ($username != 'admin' || $password != 'password') {
-            return $this->setResponseFormat('json')->respond(['message' => 'Invalid username or password']);
+            return redirect()->to('/logins');
         }
 
         $key = getenv('JWT_SECRET');
