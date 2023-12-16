@@ -1,26 +1,4 @@
-<?php include('header.php') ?>
-
-<body class="font-poppins bg-[#F5F5F5] h-screen">
-    <?php include('navbar.php') ?>
-
-    <div>
-        <h1 class="text-3xl p-12 font-bold text-center text-[#4200FF]">Profile</h1>
-        <div class="w-[50%] m-auto mb-12 flex text-xl">
-            <div class="pt-12 ">
-                <img class="w-36 h-36" alt="profile" src="/Profile/profile.png" />
-            </div>
-            <div class="h-60 w-2 bg-[#4200FF] mx-16"><br/></div>
-            <div class="items-center flex">
-                <div>
-                    <h1 class="font-bold p-4 text-[#4200FF]">Admin</h1>
-                    <p class="p-4 font-semibold">Anda sedang login sebagai Admin Apotek</p>
-                </div>
-            </div>
-        </div>
-        <a href="/logout" class="flex m-auto items-center bg-[#EB1E11] py-2 px-12 rounded-lg font-bold text-white text-center w-fit">Log Out</a>
-    </div>
-
-    <div class="FOOTER bg-[#4200FF] text-white rounded-t-lg border-12 p-8 pb-0 mt-24">
+<div class="FOOTER bg-[#4200FF] text-white rounded-t-lg border-12 p-8 pb-0 mt-16">
             <div class="">
                 <h1 class="text-3xl font-bold text-center">We Care About You</h1>
                 <h2 class="text-xl text-center p-2">Find Any Medicine You Need!</h2>
@@ -35,7 +13,7 @@
                         <ul class="gap-4">
                             <li class="flex py-1 gap-2">
                                 <img alt="ig" src="/landing/instagram.png"/>
-                                <p>@tst.hospital</p>
+                                <p>@tst.apothecary</p>
                             </li>
                             <li class="flex py-1 gap-2">
                                 <img alt="wa" src="/landing/whatsapp.png"/>
@@ -43,20 +21,17 @@
                             </li>
                             <li class="flex py-1 gap-2">
                                 <img alt="email" src="/landing/email.png"/>
-                                <p>tst.hospital@gmail.com</p>
+                                <p>tst.apothecary@gmail.com</p>
                             </li>
                             <li class="flex py-1 gap-2">
                                 <img alt="website" src="/landing/website.png"/>
-                                <p>tst.hospital.id</p>
+                                <p>tst.apothecary.id</p>
                             </li>
                         </ul>
                     </div>
                     <div class="w-full h-48 pt-40 align-bottom">
-                        <p class="text-right align-text-bottom">© 2023 TST Hospital. All rights reserved.</p>
+                        <p class="text-right align-text-bottom">© 2023 TST Apothecary. All rights reserved.</p>
                     </div>
                 </div>
             </div>
         </div>
-</body>
-
-</html>

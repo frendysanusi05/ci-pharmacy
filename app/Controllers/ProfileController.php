@@ -4,10 +4,11 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
-class Home extends BaseController
+class ProfileController extends BaseController
 {
     public function index(): string
     {
-        return view('landingpage');
+        
+        return view('profile');
     }
 }
