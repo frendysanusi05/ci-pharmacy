@@ -3,39 +3,26 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\Obat;
+use App\Models\Transaksi;
 
-class ObatController extends BaseController
+class TransaksiController extends BaseController
 {
-    protected $obat;
+    protected $transaksi;
 
-    function __construct()
-    {
-        $this->obat = new Obat();   
+    function __construct() {
+        $this->transaksi = new Transaksi();
     }
 
     public function index()
     {
-        $data['medicines'] = $this->getObat(false);
-        return view('medicine', $data);
+        $data['transactions'] = $this->getTransaksi(false);
+        return view('transaction', $data);
     }
 
-    public function editForm($id)
-    {
-        $data['medicine'] = $this->getObatById($id, false);
-        return view('popupedit', $data);
-    }
-
-    public function deleteForm($id)
-    {
-        $data['medicine'] = $this->deleteObat($id, false);
-        return view('popupdelete', $data);
-    }
-
-    public function getObat($returnJSON = true)
+    public function getTransaksi($returnJSON = true)
     {
         try {
-            $data = $this->obat->findAll();
+            $data = $this->transaksi->findAll();
             
             if ($returnJSON) {
                 return $this->response->setJSON([
@@ -55,9 +42,9 @@ class ObatController extends BaseController
         }
     }
 
-    public function getObatById($id, $returnJSON = true)
+    public function getTransaksiById($id, $returnJSON = true)
     {
-        $data = $this->obat->find($id);
+        $data = $this->transaksi->find($id);
         if (empty($data)) {
             return $this->response->setStatusCode(500)->setJSON([
                 'status' => 'error',
@@ -78,33 +65,68 @@ class ObatController extends BaseController
         }
     }
 
-    public function createObat() {
+    public function createTransaksi() {
         $body = (array) $this->request->getJSON();
 
+        
         $validationData = [
-            'nama'  => 'required',
-            'jenis'  => 'required',
-            'harga'  => 'required|integer',
-            'jumlah_stok'  => 'required|integer',
+            'bulan'  => 'required',
+            'total_biaya'  => 'required',
+        ];
+        
+        if (!$this->validate($validationData, $body)) {
+            return $this->response->setStatusCode(400)->setJSON($this->validator->getErrors());
+        }
+        
+        try {
+            $data = $this->transaksi->insert([
+                'bulan' => $body['bulan'],
+                'total_biaya' => $body['total_biaya']
+            ]);
+            
+            return $this->response->setJSON([
+                'status' => 'success',
+                'data' => $body
+            ]);
+        }
+        catch (\Exception $e) {
+            return $this->response->setStatusCode(500)->setJSON([
+                'status' => 'error',
+                'message' => 'An error occured'
+            ]);
+        }
+    }
+
+    public function updateTransaksi($id, $returnJSON = true) {
+        $body = (array) $this->request->getJSON();
+
+        if (!$body) {
+            $returnJSON = false;
+
+            $body['bulan'] = $_POST['bulan'];
+            $body['total_biaya'] = $_POST['total_biaya'];
+        }
+
+        $validationData = [
+            'bulan'  => 'required',
+            'total_biaya'  => 'required'
         ];
 
         if (!$this->validate($validationData, $body)) {
             return $this->response->setStatusCode(400)->setJSON($this->validator->getErrors());
         }
 
-        // check if obat exist
-        $res = $this->obat->where('nama', $body['nama'])->first();
-
-        if ($res) {
+        // check if transaksi exist
+        $res = $this->transaksi->find($id);
+        
+        if (!$res) {
             return $this->response->setStatusCode(400)->setJSON(['error' => 'An error occured']);
         }
 
         try {
-            $data = $this->obat->insert([
-                'nama' => $body['nama'],
-                'jenis' => $body['jenis'],
-                'harga' => $body['harga'],
-                'jumlah_stok' => $body['jumlah_stok'],
+            $data = $this->transaksi->update($id, [
+                'bulan' => $body['bulan'],
+                'total_biaya' => $body['total_biaya']
             ]);
     
             return $this->response->setJSON([
@@ -120,72 +142,16 @@ class ObatController extends BaseController
         }
     }
 
-    public function updateObat($id, $returnJSON = true) {
-        $body = (array) $this->request->getJSON();
-
-        if (!$body) {
-            $returnJSON = false;
-
-            $body['nama'] = $_POST["nama"];
-            $body['harga'] = $_POST["harga"];
-            $body['jumlah_stok'] = $_POST["jumlah_stok"];
-            $body['deskripsi'] = $_POST["deskripsi"];
-        }
-
-        $validationData = [
-            'nama'  => 'required',
-            'harga'  => 'required|integer',
-            'jumlah_stok'  => 'required|integer',
-            'deskripsi' => 'required',
-        ];
-
-        if (!$this->validate($validationData, $body)) {
-            return $this->response->setStatusCode(400)->setJSON($this->validator->getErrors());
-        }
-
-        // check if obat exist
-        $res = $this->obat->find($id);
-        
-        if (!$res) {
-            return $this->response->setStatusCode(400)->setJSON(['error' => 'An error occured']);
-        }
-
+    public function deleteTransaksi($id, $returnJSON = true) {
         try {
-            $data = $this->obat->update($id, [
-                'nama' => $body['nama'],
-                'harga' => $body['harga'],
-                'jumlah_stok' => $body['jumlah_stok'],
-                'deskripsi' => $body['deskripsi'],
-            ]);
-            
-            if ($returnJSON) {
-                return $this->response->setJSON([
-                    'status' => 'success',
-                    'data' => $body
-                ]);
-            }
-            else {
-                return redirect()->to('/medicines');
-            }
-        }
-        catch (\Exception $e) {
-            return $this->response->setStatusCode(500)->setJSON([
-                'status' => 'error',
-                'message' => 'An error occured'
-            ]);
-        }
-    }
-
-    public function deleteObat($id, $returnJSON = true) {
-        try {
-            $res = $this->obat->find($id);
+            $res = $this->transaksi->find($id);
 
             if (!$res) {
                 return $this->response->setStatusCode(404)->setJSON(['error' => 'An error occured']);
             }
 
-            $data = $this->obat->delete($id);
-
+            $data = $this->transaksi->delete($id);
+            
             if ($returnJSON) {
                 return $this->response->setJSON([
                     'status' => 'success',
@@ -194,7 +160,7 @@ class ObatController extends BaseController
             }
             else
             {
-                return redirect()->to('/medicines');
+                return redirect()->to('/transaction');
             }
         }
         catch (\Exception $e) {

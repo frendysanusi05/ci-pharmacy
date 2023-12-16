@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Pembayaran extends Migration
+class Transaksi extends Migration
 {
     public function up()
     {
@@ -15,25 +15,20 @@ class Pembayaran extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'tanggal'    => [
-                'type'           => 'DATETIME',
-            ],
-            'detail'    => [
-                'type'           => 'VARCHAR',
-                'constraint'     => '255',
+            'bulan'    => [
+                'type'           => 'INT',
             ],
             'total_biaya'  => [
                 'type'           => 'INTEGER',
-                'unsigned'       => true,
             ], 
         ]);
 
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('pembayaran', true);
+        $this->forge->createTable('transaksi', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('pembayaran');
+        $this->forge->dropTable('transaksi');
     }
 }
