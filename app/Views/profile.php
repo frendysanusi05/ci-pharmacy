@@ -13,14 +13,11 @@
             <div class="items-center flex">
                 <div>
                     <h1 class="font-bold p-4 text-[#4200FF]">Admin</h1>
-                    <p class="p-4 font-semibold">Nama: Vania Salsabilla</p>
-                    <p class="p-4 font-semibold">ID: 312</p>
+                    <p class="p-4 font-semibold">Anda sedang login sebagai Admin Apotek</p>
                 </div>
             </div>
         </div>
-        <div class="text-center mt-8">
-            <button class="flex m-auto items-center bg-[#EB1E11] py-2 px-12 rounded-lg font-bold text-white text-center w-fit">Log Out</button>
-        </div>
+        <a href="/logout" class="flex m-auto items-center bg-[#EB1E11] py-2 px-12 rounded-lg font-bold text-white text-center w-fit">Log Out</a>
     </div>
 
     <div class="FOOTER bg-[#4200FF] text-white rounded-t-lg border-12 p-8 pb-0 mt-24">

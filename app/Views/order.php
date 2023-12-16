@@ -56,7 +56,6 @@
                         <form method=" ' . ( isset($currentOrder["status_ambil"]) ? (($currentOrder["status_ambil"]) ? null : "post") : null ) . ' ">
                             <div class="text-center">
                                 <button type="submit" class=" text-center m-auto mt-2 h-11 w-72  text-white text-md font-medium font-poppins rounded-lg py-1 px-8 ' . ( isset($currentOrder["status_ambil"]) ? (($currentOrder["status_ambil"]) ? "bg-[#9A9A9A] hover:bg-gray-500" : "bg-[#4200FF] hover:bg-[#4004EC]") : null ) . '">Done</button>
-                                <!-- <button class="text-center m-auto mt-2 h-11 w-72 bg-[#9A9A9A] hover:bg-gray-500 text-white text-md font-medium font-poppins rounded-lg py-1 px-8">Done</button> -->
                             </div>   
                         </form>
                     </div>
@@ -77,3 +76,5 @@
 
         
         </div>
+    <?php include('footer.php') ?>
+</body>

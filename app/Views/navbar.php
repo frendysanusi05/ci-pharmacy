@@ -15,7 +15,7 @@
                         <a class="hover:text-blue-700" href="/transaction">Transaction</a>            
                     </li>
                     <li>
-                        <a class="hover:text-blue-700" href="/profile">Profile</a>            
+                        <a class="hover:text-blue-700" href="/profiles">Profile</a>            
                     </li>
                 </ul>
             </div>
