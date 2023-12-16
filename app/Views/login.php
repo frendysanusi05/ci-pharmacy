@@ -19,7 +19,7 @@
                     <div class="mt-2">
                         <label for="" class=""></label>
                             <span class="px-52 flex font-semibold mt-2 text-neutral-700 text-sm font-poppins">Password</span>
-                            <input type="text" name="password" placeholder="Enter your password" class=" ml-52 flex w-64 px-4 text-xs justify text-start placeholder-gray-500 my-2 bg-neutral-100 py-2 rounded-md font-poppins border-gray-400" required>
+                            <input type="password" name="password" placeholder="Enter your password" class=" ml-52 flex w-64 px-4 text-xs justify text-start placeholder-gray-500 my-2 bg-neutral-100 py-2 rounded-md font-poppins border-gray-400" required>
                     </div>
                     <div class="mt-10 pl-72">
                         <button type="submit" class="bg-[#4200FF] hover:bg-[#4004EC] text-white text-md font-medium font-poppins py-1 px-8 rounded-lg ">Login</button>

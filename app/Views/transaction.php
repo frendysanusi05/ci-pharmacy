@@ -15,65 +15,14 @@
                 </thead>
 
                 <tbody>
-                    <tr class="bg-gray-100">
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Januari 2023</td>
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 7.800.000</td>
-                    </tr>
+                    <?php foreach ($transactions as $transaction): ?>
+                        <tr class="bg-gray-50">
+                            <td class="border-r-2 border-gray-800 p-3 text-sm text-gray-700 font-semibold font-poppins text-center"><?php echo isset($transaction['bulan']) ? ($transaction['bulan']) : null ?></td>
+                            <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center"><?php echo isset($transaction['total_biaya']) ? $transaction['total_biaya'] : null; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
 
-                    <tr class="bg-gray-50">
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Februari 2023</td>
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 5.877.000</td>
-                    </tr>
 
-                    <tr class="bg-gray-100">
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Maret 2023</td>
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 9.898.000</td>
-                    </tr>
-
-                    <tr class="bg-gray-50">
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">April 2023</td>
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 6.800.000</td>
-                    </tr>
-
-                    <tr class="bg-gray-100">
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Mei 2023</td>
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 3.543.000</td>
-                    </tr>
-
-                    <tr class="bg-gray-50">
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Juni 2023</td>
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 5.890.000</td>
-                    </tr>
-
-                    <tr class="bg-gray-100">
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Juli 2023</td>
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 2.890.000</td>
-                    </tr>
-
-                    <tr class="bg-gray-50">
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Agustus 2023</td>
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 9.890.000</td>
-                    </tr>
-
-                    <tr class="bg-gray-100">
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">September 2023</td>
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 4.890.000</td>
-                    </tr>
-
-                    <tr class="bg-gray-50">
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Oktober 2023</td>
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 1.890.000</td>
-                    </tr>
-
-                    <tr class="bg-gray-100">
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">November 2023</td>
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 2.890.000</td>
-                    </tr>
-
-                    <tr class="bg-gray-50 mb-16">
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Desember 2023</td>
-                        <td class="p-3 text-sm text-gray-700 font-semibold font-poppins text-center">Rp 3.890.000</td>
-                    </tr>
                 </tbody>
             </table>
         </div>
