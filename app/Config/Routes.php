@@ -34,8 +34,8 @@ $routes->group('api', function ($routes) {
     $routes->group('obat', function ($routes) {
         $filter = ['filter' => 'authFilter'];
 
-        $routes->get('', 'ObatController::getObat', $filter);
-        $routes->get('(:segment)', 'ObatController::getObatById/$1', $filter);
+        $routes->get('', 'ObatController::getObat');
+        $routes->get('(:segment)', 'ObatController::getObatById/$1');
         $routes->post('', 'ObatController::createObat', $filter);
         $routes->put('(:segment)', 'ObatController::updateObat/$1', $filter);
         $routes->delete('(:segment)', 'ObatController::deleteObat/$1', $filter);

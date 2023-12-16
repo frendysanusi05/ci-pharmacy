@@ -9,7 +9,6 @@
 
     <div class="grid grid-cols-3 gap-3 mt-14 w-fit m-auto">
         <?php $numOrders = count($orders);
-
             for ($i = 0; $i < $numOrders; $i++) {
                 $currentOrder = $orders[$i];
             
@@ -33,7 +32,9 @@
                             <tbody> 
                                 <tr>
                                         <td class="font-semibold text-black text-sm"> '
-                                            . ( isset($currentOrder["id_obat"]) ? ($currentOrder["id_obat"]) : null ) . '
+                                            . ( isset($currentOrder["nama_obat"]) ? (
+                                                $currentOrder["nama_obat"]) : null 
+                                                ) . '
                                         </td>
                                         <td class="font-semibold text-black text-sm">1 pcs</td>
                                     </tr>' ;
@@ -43,7 +44,7 @@
                                     $i = $i + 1;
                                     echo '<tr>
                                     <td class="font-semibold text-black text-sm"> '
-                                        . ( isset($currentOrder["id_obat"]) ? ($currentOrder["id_obat"]) : null ) . '
+                                        . ( isset($currentOrder["nama_obat"]) ? ($currentOrder["nama_obat"]) : null ) . '
                                     </td>
                                     <td class="font-semibold text-black text-sm">1 pcs</td>
                                 </tr>';} else {break;}
@@ -75,6 +76,35 @@
         <!-- ?php include('footer.php') ?> -->
 
         
+<<<<<<< HEAD
         </div>
     <?php include('footer.php') ?>
 </body>
+=======
+    </div>
+</body>
+
+<!-- <script>
+    document.getElementById("updateStatusButton").addEventListener("click", function() {
+        var orderId = document.getElementById("updateStatusButton").getAttribute('data-order-id');
+        console.log(orderId);
+        updateStatus(orderId);
+    });
+
+    function updateStatus(orderId) {
+        fetch('/api/pesanan/' + orderId, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+</script> -->
+>>>>>>> 9c3b3c4e56f5a47a7a09438961899f3182393f72
