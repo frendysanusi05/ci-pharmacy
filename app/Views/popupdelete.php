@@ -7,7 +7,7 @@
         </div>
 
         <div class="items-center -mt-[136px] m-[128px]">
-            <button id="delete" data-id="" class="text-center h-8 w-[128px] bg-[#EB1E11] hover:bg-[#D02015] text-white text-sm font-medium font-poppins rounded-lg py-1 px-8">Yes</button>
+            <button id="delete" class="text-center h-8 w-[128px] bg-[#EB1E11] hover:bg-[#D02015] text-white text-sm font-medium font-poppins rounded-lg py-1 px-8">Yes</button>
             <button id="cancel" class="text-center h-8 w-[128px] bg-[#9A9A9A] hover:bg-gray-500 text-white text-sm font-medium font-poppins rounded-lg py-1 px-8 mt-2">Cancel</button>
         </div>
     </div>
