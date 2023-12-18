@@ -820,6 +820,10 @@ video {
   display: grid;
 }
 
+.hidden {
+  display: none;
+}
+
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
@@ -1296,6 +1300,10 @@ video {
   padding-left: 20rem;
 }
 
+.pr-24 {
+  padding-right: 6rem;
+}
+
 .pt-12 {
   padding-top: 3rem;
 }
@@ -1314,18 +1322,6 @@ video {
 
 .pt-\[0\.10px\] {
   padding-top: 0.10px;
-}
-
-.pr-44 {
-  padding-right: 11rem;
-}
-
-.pr-20 {
-  padding-right: 5rem;
-}
-
-.pr-24 {
-  padding-right: 6rem;
 }
 
 .text-left {
