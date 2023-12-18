@@ -748,10 +748,6 @@ video {
   margin-right: 11rem;
 }
 
-.mr-48 {
-  margin-right: 12rem;
-}
-
 .mr-72 {
   margin-right: 18rem;
 }
@@ -808,6 +804,14 @@ video {
   margin-top: 440px;
 }
 
+.mr-48 {
+  margin-right: 12rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .block {
   display: block;
 }
@@ -822,10 +826,6 @@ video {
 
 .grid {
   display: grid;
-}
-
-.hidden {
-  display: none;
 }
 
 .aspect-square {
@@ -906,26 +906,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[\] {
-  height: ;
-}
-
-.h-\[40\] {
-  height: 40;
-}
-
-.h-\[400px\] {
-  height: 400px;
-}
-
-.h-\[440px\] {
-  height: 440px;
-}
-
-.h-\[40px\] {
-  height: 40px;
 }
 
 .h-\[430px\] {
