@@ -10,7 +10,7 @@ services:
     volumes:
       - ./:/var/www
     networks:
-      - pharmacy
+      - pharmacy-hospital
     
   # Web Server
   web:
@@ -24,7 +24,7 @@ services:
     ports:
       - "8080:80"
     networks:
-      - pharmacy
+      - pharmacy-hospital
 
   # Database
   database:
@@ -38,7 +38,7 @@ services:
     ports:
       - "3308:3308"
     networks:
-      - pharmacy
+      - pharmacy-hospital
 
   npm:
     image: node:alpine
@@ -52,8 +52,8 @@ services:
     profiles: ["npm"]
     entrypoint: ['npm']
     networks:
-      - pharmacy
+      - pharmacy-hospital
 
 networks:
-  pharmacy:
-    name: "pharmacy-network"
+  pharmacy-hospital:
+    name: "pharmacy-hospital-network"
