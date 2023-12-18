@@ -56,8 +56,8 @@
                         </table>
                         <form action="" id="' . ( isset($currentOrder["id"]) ? ($currentOrder["id"])  : null ) . '" method=" ' . ( isset($currentOrder["status_ambil"]) ? (($currentOrder["status_ambil"]) ? null : "post") : null ) . ' ">
                             <div class="text-center">
-                                <button id="' . ( isset($currentOrder["id"]) ? ($currentOrder["id"])  : null ) . '  data-order-id="' . ($currentOrder['id_pesanan']) . '" type="submit" class=" text-center m-auto mt-2 h-11 w-72  text-white text-md font-medium font-poppins rounded-lg py-1 px-8 ' . ( isset($currentOrder["status_ambil"]) ? (($currentOrder["status_ambil"]) ? "bg-[#9A9A9A] hover:bg-gray-500" : "bg-[#4200FF] hover:bg-[#4004EC]") : null ) . '">Done</button>
-                            </div>
+                                <button type="submit" class=" text-center m-auto mt-2 h-11 w-72  text-white text-md font-medium font-poppins rounded-lg py-1 px-8 ' . ( isset($currentOrder["status_ambil"]) ? (($currentOrder["status_ambil"]) ? "bg-[#9A9A9A] hover:bg-gray-500" : "bg-[#4200FF] hover:bg-[#4004EC]") : null ) . '">Done</button>
+                            </div>   
                         </form>
                     </div>
                 </div>
@@ -66,9 +66,9 @@
 
             <script>
             document.addEventListener("DOMContentLoaded", function() {
-                document.getElementById("' . ( isset($currentOrder["id"]) ? ($currentOrder["id"])  : "a" ) . '").addEventListener("click", function(event) {
+                document.getElementById("' . ( isset($currentOrder["id"]) ? ($currentOrder["id"])  : null ) . '").addEventListener("click", function(event) {
                     event.preventDefault();
-                    var orderId = document.getElementById("' . ( isset($currentOrder["id"]) ? ($currentOrder["id"])  : "a" ) . '").getAttribute("id");
+                    var orderId = document.getElementById("' . ( isset($currentOrder["id"]) ? ($currentOrder["id"])  : null ) . '").getAttribute("id");
                     updateStatus(orderId);
                     
                 });
@@ -102,12 +102,6 @@
             }
 
         ?>
-        
-        <!-- ?php include('footer.php') ?> -->
-
-        
-    </div>
-
-    
+        </div>
+    <?php include('footer.php') ?>
 </body>
-

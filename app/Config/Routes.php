@@ -12,6 +12,8 @@ $routes->get('/logins', 'AuthController::index');
 $routes->post('/logins', 'AuthController::login');
 $routes->get('/logout', 'AuthController::logout');
 
+$routes->get('/profiles', 'ProfileController::index');
+
 $routes->get('/medicines', 'ObatController::index', $filter);
 $routes->get('/medicines/add', 'ObatController::addForm', $filter);
 $routes->post('/medicines/add', 'ObatController::createObat', $filter);
