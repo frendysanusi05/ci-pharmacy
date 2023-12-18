@@ -7,7 +7,7 @@
         <h1 class="text-[#4200FF] text-4xl font-bold font-poppins mt-10">Manage Medicine</h1>
     </div>
     <div class="text-right mr-48 mt-12">
-        <button class="text-right m-auto mt-2 h-10 w-58 bg-[#4200FF] hover:bg-[#4004EC] text-white text-sm font-medium font-poppins rounded-lg py-1 px-8">Add Medicine</button>
+        <a href="/medicines/add" class="text-right m-auto mt-2 h-10 w-58 bg-[#4200FF] hover:bg-[#4004EC] text-white text-sm font-medium font-poppins rounded-lg py-1 px-8">Add Medicine</a>
     </div>
     <div class="grid grid-cols-5 gap-4 mt-14 w-fit m-auto">
         <?php foreach ($medicines as $medicine): ?>

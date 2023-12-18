@@ -13,6 +13,8 @@ $routes->post('/logins', 'AuthController::login');
 $routes->get('/logout', 'AuthController::logout');
 
 $routes->get('/medicines', 'ObatController::index', $filter);
+$routes->get('/medicines/add', 'ObatController::addForm', $filter);
+$routes->post('/medicines/add', 'ObatController::createObat', $filter);
 $routes->get('/editMedicine/(:segment)', 'ObatController::editForm/$1', $filter);
 $routes->post('/editMedicine/(:num)(/(:segment))?', 'ObatController::updateObat/$1/$2', $filter);
 $routes->get('/deleteMedicineForm/(:segment)', 'ObatController::deleteForm/$1', $filter);
