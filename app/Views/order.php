@@ -66,9 +66,9 @@
 
             <script>
             document.addEventListener("DOMContentLoaded", function() {
-                document.getElementById("' . ( isset($currentOrder["id"]) ? ($currentOrder["id"])  : "a" ) . '").addEventListener("click", function(event) {
+                document.getElementById("' . ( isset($currentOrder["id"]) ? ($currentOrder["id"])  : null ) . '").addEventListener("click", function(event) {
                     event.preventDefault();
-                    var orderId = document.getElementById("' . ( isset($currentOrder["id"]) ? ($currentOrder["id"])  : "a" ) . '").getAttribute("id");
+                    var orderId = document.getElementById("' . ( isset($currentOrder["id"]) ? ($currentOrder["id"])  : null ) . '").getAttribute("id");
                     updateStatus(orderId);
                     
                 });
@@ -102,44 +102,6 @@
             }
 
         ?>
-        
-        <!-- ?php include('footer.php') ?> -->
-
-        
-<<<<<<< HEAD
         </div>
     <?php include('footer.php') ?>
 </body>
-=======
-    </div>
-
-    
-</body>
-
-<<<<<<< HEAD
-=======
-<!-- <script>
-    document.getElementById("updateStatusButton").addEventListener("click", function() {
-        var orderId = document.getElementById("updateStatusButton").getAttribute('data-order-id');
-        console.log(orderId);
-        updateStatus(orderId);
-    });
-
-    function updateStatus(orderId) {
-        fetch('/api/pesanan/' + orderId, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    }
-</script> -->
->>>>>>> 9c3b3c4e56f5a47a7a09438961899f3182393f72
->>>>>>> f39fd79fddcdf6c3f13bb746bad98909250d9f62
