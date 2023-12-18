@@ -19,7 +19,10 @@ class ObatController extends BaseController
         $data['medicines'] = $this->getObat(false);
         return view('medicine', $data);
     }
-
+    public function addForm()
+    {
+        return view('popupedit');
+    }
     public function editForm($id)
     {
         $data['medicine'] = $this->getObatById($id, false);
@@ -79,13 +82,20 @@ class ObatController extends BaseController
     }
 
     public function createObat() {
-        $body = (array) $this->request->getJSON();
+        $nama = $_POST['nama'];
+        $jenis = $_POST['jenis'];
+        $harga = $_POST['harga'];
+        $jumlah_stok = $_POST['jumlah_stok'];
+        $deskripsi = $_POST['deskripsi'];
+
+        $body = [$nama, $jenis, $harga, $jumlah_stok, $deskripsi];
 
         $validationData = [
             'nama'  => 'required',
             'jenis'  => 'required',
             'harga'  => 'required|integer',
             'jumlah_stok'  => 'required|integer',
+            'deskripsi'  => 'required',
         ];
 
         if (!$this->validate($validationData, $body)) {
@@ -93,7 +103,7 @@ class ObatController extends BaseController
         }
 
         // check if obat exist
-        $res = $this->obat->where('nama', $body['nama'])->first();
+        $res = $this->obat->where('nama', $nama)->first();
 
         if ($res) {
             return $this->response->setStatusCode(400)->setJSON(['error' => 'An error occured']);
@@ -101,16 +111,14 @@ class ObatController extends BaseController
 
         try {
             $data = $this->obat->insert([
-                'nama' => $body['nama'],
-                'jenis' => $body['jenis'],
-                'harga' => $body['harga'],
-                'jumlah_stok' => $body['jumlah_stok'],
+                'nama' => $nama,
+                'jenis' => $jenis,
+                'harga' => $harga,
+                'jumlah_stok' => $jumlah_stok,
+                'deskripsi' => $deskripsi,
             ]);
     
-            return $this->response->setJSON([
-                'status' => 'success',
-                'data' => $body
-            ]);
+            return redirect()->to('/medicines');
         }
         catch (\Exception $e) {
             return $this->response->setStatusCode(500)->setJSON([
