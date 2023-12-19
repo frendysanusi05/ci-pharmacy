@@ -60,7 +60,7 @@ Sistem apotek akan menjembatani pemesanan tiap obat yang dipesan oleh rumah saki
 - Github dan Git
 - Visual Studio Code
 
-[![My Skills](https://skillicons.dev/icons?i=codeigniter4,mysql,github,phpmyadmin,postmanapi,docker)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=codeigniter4,mysql,github, git, php,postman,docker, vscode)](https://skillicons.dev)
 
 ## How to run
 
@@ -69,7 +69,7 @@ Sistem apotek akan menjembatani pemesanan tiap obat yang dipesan oleh rumah saki
 2. Masuk ke directory
 
 ```
-cd /ci-hospital
+cd /ci-pharmacy
 ```
 
 3. Copy konten file .env.example menjadi .env
@@ -85,10 +85,10 @@ php spark db:seed DataSeeder
 
 5. Jalankan aplikasi menggunakan command berikut dalam dua terminal berbeda
 ```
-php spark serve --port 8081
+php spark serve
 npx tailwindcss -i ./public/css/input.css -o ./public/css/styles.css --watch
 ```
-6. Service berjalan pada http://localhost:8081 pada browser Anda
+6. Service berjalan pada http://localhost:8080 pada browser Anda
 
 7. Gunakan informasi login berikut:
 ```
@@ -96,29 +96,20 @@ npx tailwindcss -i ./public/css/input.css -o ./public/css/styles.css --watch
 username: admin
 password: password
 
-# Login sebagai dokter
-username: dokter_a
-password: password
-```
-
 ## Deployment
 
 ## Features
 
-1. **Login** - melakukan validasi dan autorisasi pengguna. terdapat 2 role dalam sistem ini, yaitu dokter yang bertugas mengisi catatan kunjungan, dan admin yang bertugas mendaftarkan pasien, mengkonfirmasi pembayaran, dan mengirim informasi rekapitulasi masukan uang ke sistem apotek.
+1. **Login** - Dengan mmelakukan validasi dan autorisasi pengguna. terdapat 1 role dalam sistem ini, yaitu admin apotek yang bertugas mengelola stok obat, mengkonfirmasi pemesanan obat, dan mengirim informasi mengenai suplemen.
 
-2. **View Supplement Recommendations** - dokter dapat melihat rekomendasi suplemen tiap bulan yang diberikan sistem apotek untuk mendapatkan informasi kebutuhan vitamin para pasien dalam satu bulan terakhir.
+2. **Add/Edit/Delete Medicine** - Admin dapat melakukan pengelolaan obat, meliputi: menambahkan obat, mengedit nama, jenis, harga, stok dan deskripsi obat, serta menghapus obat
 
-3. **Add Kunjungan** - dokter dapat menambahkan data kunjungan, dimana dokter dapat memilih pasien dan menambahkan data keluhan, diagnosa, dan preskripsi obat yang diberikan kepada pasien tersebut. Preskripsi obat dilakukan dengan menggunakan integrasi page stok obat dari sistem apotek untuk mempermudah pemesanan obat.
+3. **Confirm Order** - Admin dapat melakukan konfirmasi order yang direquests oleh rumah sakit pada halaman order.
 
-4. **Profile** - dokter dan admin dapat melihat data diri, serta melakukan Log Out pada halaman profil.
+4. **Profile** - Admin dapat melihat data diri, serta melakukan Log Out pada halaman profil.
 
-5. **Add/Edit/Delete Patients** - admin dapat melakukan manajemen data pasien untuk kebutuhan pendaftaran pasien.
+6. **See Recapitulations** - Admin dapat melihat rekapitulasi transaksi per bulannya yang dikirimkan oleh rumah sakit pada laman Transactions
 
-6. **Edit Transactions** - admin dapat mengkonfirmasi kegiatan perubahan data pasien.
-
-7. **Send Recapitulation** - admin dapat mengirimkan data rekapitulasi masukan uang untuk bulan tertentu ke sistem apotek untuk pertanggungjawaban keuangan antarsistem.
-   
 
 ## Documentation
 [https://docs.google.com/document/d/11VVUq3s6EbKkoQnYY_Sl7ymabZufGoWuneDM68WyuzY/edit](Documentation)
