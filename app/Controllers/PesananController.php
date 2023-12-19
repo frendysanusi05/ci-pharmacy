@@ -222,12 +222,15 @@ class PesananController extends BaseController
         $countItem = [];
         foreach ($data as $medicine) {
             $id = $medicine['id_obat'];
-            if (!array_key_exists($id, $countItem)) {
-                $countItem[$id] = 1;
-            }
-            else
-            {
-                $countItem[$id] += 1;
+            $med = $this->obat->find($id);
+            if ($med['jenis'] === 'Suplemen') {
+                if (!array_key_exists($id, $countItem)) {
+                    $countItem[$id] = 1;
+                }
+                else
+                {
+                    $countItem[$id] += 1;
+                }
             }
         }
 
