@@ -116,6 +116,6 @@ password: password
 
 
 ## Documentation
-[https://docs.google.com/document/d/11VVUq3s6EbKkoQnYY_Sl7ymabZufGoWuneDM68WyuzY/edit](Documentation)
+[https://docs.google.com/document/d/11VVUq3s6EbKkoQnYY_Sl7ymabZufGoWuneDM68WyuzY/edit?usp=sharing)https://docs.google.com/document/d/11VVUq3s6EbKkoQnYY_Sl7ymabZufGoWuneDM68WyuzY/edit?usp=sharing](Documentation)
 
 *Development processes and interfaces are provided in the document.*
