@@ -67,16 +67,6 @@ class TransaksiController extends BaseController
 
     public function createTransaksi() {
         $body = (array) $this->request->getJSON();
-
-        
-        $validationData = [
-            'bulan'  => 'required',
-            'total_biaya'  => 'required',
-        ];
-        
-        if (!$this->validate($validationData, $body)) {
-            return $this->response->setStatusCode(400)->setJSON($this->validator->getErrors());
-        }
         
         try {
             $data = $this->transaksi->insert([
