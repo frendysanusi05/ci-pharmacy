@@ -1,5 +1,5 @@
 <div align="center">
-    <img  alt="logo" src="/logo.svg"/>
+    <img  alt="logo" src="/login/logo.svg"/>
     <h1>Tugas Besar</h1>
     <h3>II3160 - Teknologi Sistem Terintegrasi</h3>
 </div>
@@ -58,9 +58,12 @@ Sistem apotek akan menjembatani pemesanan tiap obat yang dipesan oleh rumah saki
 - Codeigniter 4
 - MySQLdb
 - Github dan Git
+- php
 - Visual Studio Code
+- Postman
+- Docker
 
-[![My Skills](https://skillicons.dev/icons?i=codeigniter,mysql,github,git,php,postman,docker,vscode)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=mysql,github,git,php,postman,docker,vscode)](https://skillicons.dev)
 
 ## How to run
 
