@@ -1,5 +1,5 @@
 <div align="center">
-    <img  alt="logo" src="/login/logo.svg"/>
+    <img  alt="logo" src="/public/logo.svg"/>
     <h1>Tugas Besar</h1>
     <h3>II3160 - Teknologi Sistem Terintegrasi</h3>
 </div>
