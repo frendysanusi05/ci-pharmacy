@@ -1,67 +1,126 @@
-# CodeIgniter 4 Application Starter
+<div align="center">
+    <img  alt="logo" src="/logo.svg"/>
+    <h1>Tugas Besar</h1>
+    <h3>II3160 - Teknologi Sistem Terintegrasi</h3>
+</div>
+<br>
 
-## What is CodeIgniter?
+<div align="center">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Itim&size=48&pause=1000&color=4200FF&center=true&vCenter=true&random=false&width=1000&height=60&lines=Teknologi+Sistem+-+Terintegrasi;Sistem+Rumah+Sakit;Sistem+Apotek" alt="Typing SVG">
+</div>
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## List of Contents
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+1. [System Overview](#system-overview)
+2. [Core Domain](#core-domain)
+3. [Team Members](#team-members)
+4. [Tech Stack](#tech-stack)
+5. [How to Run](#how-to-run)
+6. [Deployment](#deployment)
+7. [Features](#features)
+8. [Documentation](#documentation)
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## System Overview
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+Sistem TST Apothecary adalah sistem yang yang diperuntukkan untuk pengelolaan obat yang ada di Apotek.
 
-## Installation & updates
+## Core Domain
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+Sistem apotek akan menjembatani pemesanan tiap obat yang dipesan oleh rumah sakit. Sistem apotek kemudian dapat menyimpulkan kebutuhan suplemen mayoritas pasien berdasarkan pesanan obat yang diterima tiap bulan. Suplemen ini kemudian akan direkomendasikan kepada dokter rumah sakit agar dapat mereka pertimbangkan dalam tiap kunjungan pasien yang mereka jalani.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+## Team Members
 
-## Setup
+<table>
+    <tr align="center">
+        <th>No.</th>
+        <th>Nama</th>
+        <th>NIM</th>
+    </tr>
+    <tr>
+        <td>1.</td>
+        <td>Frendy Sanusi</td>
+        <td>18221041</td>
+    </tr>
+    <tr>
+        <td>2.</td>
+        <td>Nadira R. A.</td>
+        <td>18221059</td>
+    </tr>
+    <tr>
+        <td>3.</td>
+        <td>Vania Salsabila</td>
+        <td>18221075</td>
+    </tr>
+</table>
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+## Tech Stack
 
-## Important Change with index.php
+- Codeigniter 4
+- MySQLdb
+- Github dan Git
+- Visual Studio Code
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+[![My Skills](https://skillicons.dev/icons?i=codeigniter4,mysql,github,phpmyadmin,postmanapi,docker)](https://skillicons.dev)
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+## How to run
 
-**Please** read the user guide for a better explanation of how CI4 works!
+1. Clone respository ini
 
-## Repository Management
+2. Masuk ke directory
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+```
+cd /ci-hospital
+```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+3. Copy konten file .env.example menjadi .env
 
-## Server Requirements
+4. Setup aplikasi menggunakan command berikut
 
-PHP version 7.4 or higher is required, with the following extensions installed:
+```
+composer install
+npm install
+php spark migrate
+php spark db:seed DataSeeder
+```
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+5. Jalankan aplikasi menggunakan command berikut dalam dua terminal berbeda
+```
+php spark serve --port 8081
+npx tailwindcss -i ./public/css/input.css -o ./public/css/styles.css --watch
+```
+6. Service berjalan pada http://localhost:8081 pada browser Anda
 
-> **Warning**
-> The end of life date for PHP 7.4 was November 28, 2022. If you are
-> still using PHP 7.4, you should upgrade immediately. The end of life date
-> for PHP 8.0 will be November 26, 2023.
+7. Gunakan informasi login berikut:
+```
+# Login sebagai admin
+username: admin
+password: password
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+# Login sebagai dokter
+username: dokter_a
+password: password
+```
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+## Deployment
+
+## Features
+
+1. **Login** - melakukan validasi dan autorisasi pengguna. terdapat 2 role dalam sistem ini, yaitu dokter yang bertugas mengisi catatan kunjungan, dan admin yang bertugas mendaftarkan pasien, mengkonfirmasi pembayaran, dan mengirim informasi rekapitulasi masukan uang ke sistem apotek.
+
+2. **View Supplement Recommendations** - dokter dapat melihat rekomendasi suplemen tiap bulan yang diberikan sistem apotek untuk mendapatkan informasi kebutuhan vitamin para pasien dalam satu bulan terakhir.
+
+3. **Add Kunjungan** - dokter dapat menambahkan data kunjungan, dimana dokter dapat memilih pasien dan menambahkan data keluhan, diagnosa, dan preskripsi obat yang diberikan kepada pasien tersebut. Preskripsi obat dilakukan dengan menggunakan integrasi page stok obat dari sistem apotek untuk mempermudah pemesanan obat.
+
+4. **Profile** - dokter dan admin dapat melihat data diri, serta melakukan Log Out pada halaman profil.
+
+5. **Add/Edit/Delete Patients** - admin dapat melakukan manajemen data pasien untuk kebutuhan pendaftaran pasien.
+
+6. **Edit Transactions** - admin dapat mengkonfirmasi kegiatan perubahan data pasien.
+
+7. **Send Recapitulation** - admin dapat mengirimkan data rekapitulasi masukan uang untuk bulan tertentu ke sistem apotek untuk pertanggungjawaban keuangan antarsistem.
+   
+
+## Documentation
+[https://docs.google.com/document/d/11VVUq3s6EbKkoQnYY_Sl7ymabZufGoWuneDM68WyuzY/edit](Documentation)
+
+*Development processes and interfaces are provided in the document.*
