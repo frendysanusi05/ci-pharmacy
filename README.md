@@ -60,7 +60,7 @@ Sistem apotek akan menjembatani pemesanan tiap obat yang dipesan oleh rumah saki
 - Github dan Git
 - Visual Studio Code
 
-[![My Skills](https://skillicons.dev/icons?i=codeigniter4,mysql,github,git,php,postman,docker,vscode)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=codeigniter,mysql,github,git,php,postman,docker,vscode)](https://skillicons.dev)
 
 ## How to run
 
@@ -95,6 +95,7 @@ npx tailwindcss -i ./public/css/input.css -o ./public/css/styles.css --watch
 # Login sebagai admin
 username: admin
 password: password
+```
 
 ## Deployment
 
