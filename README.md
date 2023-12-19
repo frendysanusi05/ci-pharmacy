@@ -55,17 +55,23 @@ Sistem apotek akan menjembatani pemesanan tiap obat yang dipesan oleh rumah saki
 
 ## Tech Stack
 
-- Codeigniter 4
-- MySQLdb
-- Github dan Git
-- php
-- Visual Studio Code
+- PHP
+- Codeigniter 4 
+- Tailwind CSS
+- MySQL
+- phpMyAdmin
 - Postman
+- Github dan Git
 - Docker
+- Visual Studio Code
 
-[![My Skills](https://skillicons.dev/icons?i=mysql,github,git,php,postman,docker,vscode)](https://skillicons.dev)
+![Code-Igniter](https://img.shields.io/badge/CodeIgniter-%23EF4223.svg?style=for-the-badge&logo=codeIgniter&logoColor=white)
+
+[![My Skills](https://skillicons.dev/icons?i=php,tailwind,mysql,postman,github,git,docker,vscode)](https://skillicons.dev)
 
 ## How to run
+
+### By local
 
 1. Clone respository ini
 
@@ -100,7 +106,20 @@ username: admin
 password: password
 ```
 
+### By Docker
+
+1. Jalankan command berikut.
+```
+make setup
+```
+
+2. Service berjalan pada http://localhost:8080 pada browser Anda
+
+
 ## Deployment
+
+Deployment dilakukan menggunakan Docker dalam bentuk container
+
 
 ## Features
 
@@ -116,6 +135,6 @@ password: password
 
 
 ## Documentation
-[https://docs.google.com/document/d/11VVUq3s6EbKkoQnYY_Sl7ymabZufGoWuneDM68WyuzY/edit](Documentation)
+[Documentation](https://docs.google.com/document/d/11VVUq3s6EbKkoQnYY_Sl7ymabZufGoWuneDM68WyuzY)
 
 *Development processes and interfaces are provided in the document.*
