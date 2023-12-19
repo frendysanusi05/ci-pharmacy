@@ -13,6 +13,10 @@
     <div class="grid grid-cols-5 gap-4 mt-14 w-fit m-auto">
     <?php
         foreach ($medicines as $medicine):
+            $imageName = isset($medicine['nama']) ? $medicine['nama'] : 'cooling';
+            $imagePath = '/medicine/' . $imageName . '.png';
+            $image = file_exists($_SERVER['DOCUMENT_ROOT'] . $imagePath) ? $imagePath : '/medicine/cooling.png';
+
             echo '
             <div class="my-6 bg-white h-56 w-48 shadow-lg rounded-xl aspect-square justify-center items-center">
                 <div class="flex">
@@ -22,7 +26,7 @@
                     <h1 class="font-poppins font-semibold text-black text-base text-center mt-3 ml-6">' . (isset($medicine['nama']) ? $medicine['nama'] : null) . '</h1>
                 </div>
                 <div>
-                    <img src="/medicine/cooling.png" alt="/medicine/cooling.png" class="bg-cover bg-center p-9 pt-3">
+                    <img src="' . $image . '" alt="' . $image . '" class="bg-cover bg-center p-9 pt-3 h-40">
                     <div class="bg-[hsl(256,100%,50%)] h-16 w-auto shadow-lg rounded-xl items-center -mt-6 flex">
                         <div class="pl-5 pt-[0.10px] w-20">
                             <h1 class="font-poppins font-semibold text-white text-base text-left pt-2 -mt-1">' . (isset($medicine['harga']) ? $medicine['harga'] : null) . '</h1>
